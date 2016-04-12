@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Camera 2.5d</title>
+</head>
+
+<body>
+
+<canvas id="canvas" width="800" height="400" style="background-color:#CCC"></canvas>
+
+<!-- CreateJS libs. Include what you need -->
+<script src="http://code.createjs.com/createjs-2015.05.21.min.js"></script>
+<script src="Camera.js"></script>
+
+<!-- Custom script (inline or external) -->
+<script>
+
+    var w, h;
+
+    var stage = new createjs.Stage("canvas");
+    createjs.Ticker.on("tick", tick);
+
+    var container = new createjs.Container();
+    stage.addChild(container);
+    container.y = 200;
+    container.x = 400;
+
+    var shape = new ShapeSprite();
+    shape.graphics.beginFill("blue").drawCircle(0, 0, 10);
+    container.addChild(shape);
+
+    var center = new ShapeSprite();
+    center.graphics.beginFill("orange").drawCircle(0, 0, 50);
+    container.addChild(center);
+
+    var camera = new Camera([center, shape], container);
+    camera.z = -100;
+    camera.x = 0;
+    camera.focalDistance = 400;
+
+    var index = 0;
+    function tick(event) {
+        index += 0.18;
+
+        // Move the shape's x and z to orbit the center.
+        shape._x = Math.cos(index) * 50;
+        shape._z = Math.sin(index) * 50 - 25;
+
+        camera.update();
+        stage.update(event);
+    }
+
+</script>
+</body>
+</html>
