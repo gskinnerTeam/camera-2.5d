@@ -30,6 +30,7 @@ they already have default values, and can be properly cloned.
 
 Instantiate a few different display classes, add them to the Camera, and update the stage.
 
+```javascript
 	var bmp = new BitmapSprite("img.png");
 	bmp._x = 100; bmp._z = -100;
 
@@ -50,5 +51,6 @@ Instantiate a few different display classes, add them to the Camera, and update 
 	// Later, update the camera before updating the stage.
 	camera.update();
 	stage.update();
+```
 
-
+Check out [the sample](sample.html).
