@@ -26,7 +26,7 @@ These public classes are included in Camera.js:
 Note that the any EaselJS DisplayObject can be used, and the helper classes aren't required, but they are useful, since
 they already have default values, and can be properly cloned.
 
-## Sample
+## Usage
 
 Instantiate a few different display classes, add them to the Camera, and update the stage.
 
